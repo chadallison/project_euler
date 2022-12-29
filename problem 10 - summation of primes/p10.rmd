@@ -1,0 +1,74 @@
+---
+title: "project euler problem 10: summation of primes"
+author: "chad allison | 28 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### creating function for primes
+
+```{r}
+sieve = function(n) {
+  
+    if (n == 1) return(NULL)
+    if (n == 2) return(n)
+    list = c(2, seq(from = 3, to = n, by = 2))
+    i = 1
+    p = 2
+    
+    while (p ^ 2 <= n) {
+        list = list[list == p | list %% p != 0]
+        i = i+1
+        p = list[i]
+    }
+    
+    return(list)
+    
+}
+
+sieve(100)
+```
+
+### solution
+
+```{r}
+sum(sieve(2000000))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
