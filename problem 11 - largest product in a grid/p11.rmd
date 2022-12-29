@@ -1,0 +1,120 @@
+---
+title: "project euler problem 11: largest product in a grid"
+author: "chad allison | 28 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### loading input as matrix
+
+```{r}
+input = scan("input.txt", quiet = T)
+mat = matrix(input, ncol = 20, byrow = T)
+
+mat
+```
+
+### calculating left-right products
+
+```{r}
+max_prod_lr = 0
+
+for (i in 1:(nrow(mat) - 3)) {
+  for (j in 1:(ncol(mat) - 3)) {
+    prod = mat[i, j] * mat[i, j + 1] * mat[i, j + 2] * mat[i, j + 3]
+    if (prod > max_prod_lr) max_prod_lr = prod
+  }
+}
+
+paste("the maximum left-right product is", max_prod_lr)
+```
+
+### calculating up-down products
+
+```{r}
+# read the matrix by column instead of row and implement above logic
+mat2 = matrix(input, ncol = 20, byrow = F)
+max_prod_ud = 0
+
+for (i in 1:(nrow(mat2) - 3)) {
+  for (j in 1:(ncol(mat2) - 3)) {
+    prod = mat2[i, j] * mat2[i, j + 1] * mat2[i, j + 2] * mat2[i, j + 3]
+    if (prod > max_prod_ud) max_prod_ud = prod
+  }
+}
+
+paste("the maximum up-down product is", max_prod_ud)
+```
+
+### calculating diagonal left-right products
+
+```{r}
+max_prod_diag_lr = 0
+
+for (i in 1:(nrow(mat) - 3)) {
+  for (j in 1:(ncol(mat) - 3)) {
+    prod = mat[i, j] * mat[i + 1, j + 1] * mat[i + 2, j + 2] * mat[i + 3, j + 3]
+    if (prod > max_prod_diag_lr) max_prod_diag_lr = prod
+  }
+}
+
+paste("the maximum diagonal left-right product is", max_prod_diag_lr)
+```
+
+### calculating diagonal right-left products
+
+```{r}
+# flip matrix to read right to left, implement above logic
+mat3 = mat[1:20, 20:1]
+max_prod_diag_rl = 0
+
+for (i in 1:(nrow(mat3) - 3)) {
+  for (j in 1:(ncol(mat3) - 3)) {
+    prod = mat3[i, j] * mat3[i + 1, j + 1] * mat3[i + 2, j + 2] * mat3[i + 3, j + 3]
+    if (prod > max_prod_diag_rl) max_prod_diag_rl = prod
+  }
+}
+
+paste("the maximum diagonal right-left product is", max_prod_diag_rl)
+```
+
+### solution
+
+```{r}
+max(max_prod_lr, max_prod_ud, max_prod_diag_lr, max_prod_diag_rl)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
