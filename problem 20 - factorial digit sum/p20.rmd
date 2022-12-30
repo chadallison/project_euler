@@ -1,0 +1,84 @@
+---
+title: "project euler problem 20: factorial digit sum"
+author: "chad allison | 30 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+library(gmp) # necessary for large numbers
+options(digits = 22, scipen = 99999)
+```
+
+### computing 100!
+
+```{r}
+factorialZ(100)
+```
+
+### solution
+
+```{r}
+num = factorialZ(100)
+split = str_split(num, pattern = "")[[1]]
+sum(as.numeric(split))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
