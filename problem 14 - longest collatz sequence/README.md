@@ -1,0 +1,45 @@
+project euler problem 14: longest collatz sequence
+================
+chad allison \| 29 december 2022
+
+------------------------------------------------------------------------
+
+### setup
+
+``` r
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### creating collatz function, reproducing example
+
+``` r
+collatz = function(x) {
+  len = 1
+  while (x > 1) {
+    if (x %% 2 == 0) x = x / 2 else x = 3 * x + 1
+    len = len + 1
+  }
+  return(len)
+}
+
+collatz = Vectorize(collatz)
+collatz(13)
+```
+
+    ## [1] 10
+
+### solution
+
+``` r
+df = data.frame(num = 1:999999) |>
+  mutate(chain_len = collatz(num)) |>
+  arrange(desc(chain_len))
+
+max_num = df$num[1]
+max_len = df$chain_len[1]
+
+paste0("the number under one million with the longest collatz chain is ", max_num, " (len = ", max_len, ")")
+```
+
+    ## [1] "the number under one million with the longest collatz chain is 837799 (len = 525)"
