@@ -1,0 +1,52 @@
+---
+title: "project euler problem 15: lattice paths"
+author: "chad allison | 29 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### solution
+
+```{r}
+lattice = function(x) return(choose(2 * x, x))
+lattice(20)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
