@@ -1,4 +1,4 @@
-project euler problem 11: largest product in a grid
+project euler problem 12: highly divisible triangular number
 ================
 chad allison \| 28 december 2022
 
