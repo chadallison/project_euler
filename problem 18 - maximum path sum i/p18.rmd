@@ -1,0 +1,110 @@
+---
+title: "project euler problem 18: maximum path sum i"
+author: "chad allison | 30 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+library(english)
+options(digits = 22, scipen = 999)
+```
+
+### loading input data
+
+```{r}
+input = readLines("input.txt")
+input
+```
+
+### formatting input data as matrix
+
+```{r}
+triangle = str_split(input, pattern = " ")
+
+for (i in 1:length(triangle)) {
+  triangle[[i]] = as.numeric(triangle[[i]])
+  vec = triangle[[i]]
+  while (length(vec) < 15) vec[length(vec) + 1] = NA
+  triangle[[i]] = vec
+}
+
+mat = matrix(NA, nrow = 15, ncol = 15)
+for (i in 1:length(triangle)) mat[i, ] = triangle[[i]]
+
+mat
+```
+
+### solution
+
+```{r}
+path.sum = function(x) {
+  for (i in nrow(x):2) {
+    for (j in 1:(ncol(x)-1)) x[i - 1, j] = max(x[i, j:(j + 1)]) + x[i - 1, j]
+    x[i, ] = NA
+  }
+  return(max(x, na.rm = T))
+}
+
+path.sum(mat)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
