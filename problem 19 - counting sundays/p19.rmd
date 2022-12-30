@@ -1,0 +1,108 @@
+---
+title: "project euler problem 19: counting sundays"
+author: "chad allison | 30 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+library(lubridate)
+options(digits = 22, scipen = 999)
+```
+
+### creating data
+
+```{r}
+df = data.frame(date = as_date(as_date("1901-01-01"):as_date("2000-12-31")))
+sample_n(df, 10)
+```
+
+### creating day variable
+
+```{r}
+df = df |>
+  mutate(day_num = day(date))
+
+sample_n(df, 10)
+```
+
+### creating weekday variable
+
+```{r}
+df = df |>
+  mutate(weekday = wday(date, label = T, abbr = F))
+
+sample_n(df, 10)
+```
+
+### solution
+
+```{r}
+n = df |>
+  filter(day_num == 1 & weekday == "Sunday") |>
+  nrow()
+
+paste0("during the twentieth centurty, there were ", n, " sundays that fell on the first of the month")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
