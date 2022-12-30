@@ -10,7 +10,6 @@ ___
 
 ```{r message = F, warning = F}
 library(tidyverse)
-library(english)
 options(digits = 22, scipen = 999)
 ```
 
