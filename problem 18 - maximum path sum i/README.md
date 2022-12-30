@@ -8,7 +8,6 @@ chad allison \| 30 december 2022
 
 ``` r
 library(tidyverse)
-library(english)
 options(digits = 22, scipen = 999)
 ```
 
