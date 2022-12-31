@@ -2,7 +2,7 @@
 
 tracking my work on [project euler](https://projecteuler.net/). each day will have a file containing any script used to solve the prompt along with its own README.
 
-- [problem 1](https://github.com/chadallison/project_euler/tree/main/problem%201%20-%20multiples%20of%203%20or%205)
+- [problem 1](https://github.com/chadallison/project_euler/tree/main/problem%201%20-%20multiples%20of%203%20or%205){target="blank}
 - [problem 2](https://github.com/chadallison/project_euler/tree/main/problem%202%20-%20even%20fibonacci%20numbers)
 - [problem 3](https://github.com/chadallison/project_euler/tree/main/problem%203%20-%20largest%20prime%20factor)
 - [problem 4](https://github.com/chadallison/project_euler/tree/main/problem%204%20-%20largest%20palindrome%20product)
