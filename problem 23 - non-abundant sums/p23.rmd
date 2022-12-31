@@ -1,0 +1,108 @@
+---
+title: "project euler problem 23: non-abundant sums"
+author: "chad allison | 31 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### creating function to determine if number is abundant
+
+```{r}
+abundant = function(n) {
+  if (n == 1) return(F)
+  div = which(n %% seq(1, n - 1) == 0)
+  return(sum(div) > n)
+}
+
+abundant(12)
+```
+
+### getting all abundant integers up to 28123
+
+```{r}
+abundant_ints = data.frame(num = 12:28123) |>
+  mutate(isAbundant = sapply(num, abundant)) |>
+  filter(isAbundant)
+
+sample_n(abundant_ints, 10)
+```
+
+### getting all integers than can be expressed as sum of two abundant numbers
+
+```{r}
+all_abundant = abundant_ints |>
+  pull(num)
+
+abundant_sum_nums = crossing(x = all_abundant, y = all_abundant) |>
+  mutate(sum = x + y) |>
+  pull(sum) |>
+  unique()
+
+sample(abundant_sum_nums, 25)
+```
+
+### solution
+
+```{r}
+integers = 1:28123
+sum(integers[!integers %in% abundant_sum_nums])
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
