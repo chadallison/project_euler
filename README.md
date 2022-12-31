@@ -24,4 +24,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 20](https://github.com/chadallison/project_euler/tree/main/problem%2020%20-%20factorial%20digit%20sum)
 - [problem 21](https://github.com/chadallison/project_euler/tree/main/problem%2021%20-%20amicable%20numbers)
 - [problem 22](https://github.com/chadallison/project_euler/tree/main/problem%2022%20-%20names%20scores)
+- [problem 23](https://github.com/chadallison/project_euler/tree/main/problem%2023%20-%20non-abundant%20sums)
 
