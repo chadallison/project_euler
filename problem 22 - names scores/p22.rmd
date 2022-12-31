@@ -1,0 +1,133 @@
+---
+title: "project euler problem 22: names scores"
+author: "chad allison | 30 december 2022"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### loading input data
+
+```{r}
+input = readLines("input.txt") |>
+  str_split(pattern = ",") |>
+  unlist() |>
+  str_remove_all("\"")
+
+sample(input, 10)
+```
+
+### formatting input as data frame and putting into alphabetical order
+
+```{r}
+df = data.frame(name = input) |>
+  arrange(name) |>
+  mutate(id = 1:length(input))
+
+sample_n(df, 10)
+```
+
+### creating data frame for letter values
+
+```{r}
+letter_vals = data.frame(letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                                    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"),
+                         value = 1:26)
+
+sample_n(letter_vals, 10)
+```
+
+### creating function to calculate name score
+
+```{r}
+name_score = function(name) {
+  score = 0
+  for (i in 1:nchar(name)) {
+    letter = substr(name, i, i)
+    value = letter_vals$value[which(letter_vals$letter == letter)]
+    score = score + value
+  }
+  return(score)
+}
+
+name_score = Vectorize(name_score)
+name_score("CHAD")
+```
+
+### applying function and computing overall score
+
+```{r}
+df = df |>
+  mutate(score = name_score(name),
+         ovr = id * score)
+
+sample_n(df, 10)
+```
+
+### solution
+
+```{r}
+sum(df$ovr)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
