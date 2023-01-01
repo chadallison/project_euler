@@ -1,0 +1,53 @@
+project euler problem 26: reciprocal cycles
+================
+chad allison \| 01 january 2023
+
+------------------------------------------------------------------------
+
+### setup
+
+``` r
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### creating function to detect recurring cycle length
+
+``` r
+fractionToDecimal = function(numr, denr) {
+  res = ""
+  mp = list()
+  rem = numr %% denr
+
+  while ((rem != 0) & !(rem %in% names(mp))) {
+    mp[[as.character(rem)]] = nchar(res)
+    rem = rem * 10
+    res_part = floor(rem / denr)
+    res = paste0(res, res_part)
+    rem = rem %% denr
+  }
+
+  if (rem == 0) {
+    return("")
+  } else {
+    return(substring(res, mp[[as.character(rem)]], nchar(res)))
+  }
+}
+
+fractionToDecimal(1, 7)
+```
+
+    ## [1] "142857"
+
+### solution
+
+``` r
+data.frame(x = 1, d = 2:999) |>
+  mutate(seq = mapply(fractionToDecimal, x, d),
+         seq_len = nchar(seq)) |>
+  arrange(desc(seq_len)) |>
+  head(1) |>
+  pull(d)
+```
+
+    ## [1] 983
