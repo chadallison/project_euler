@@ -1,0 +1,86 @@
+---
+title: "project euler problem 24: lexicographic permutations"
+author: "chad allison | 01 january 2023"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+library(gtools) # for permutations
+options(digits = 22, scipen = 999)
+```
+
+### reproducing example
+
+```{r}
+vec = 0:2
+permutations(n = 3, r = 3, v = vec)
+```
+
+### getting all permutations of 0123456789
+
+```{r}
+vec = 0:9
+permutations_df = permutations(n = 10, r = 10, v = vec)
+permutations_df[1:10, ]
+```
+
+### solution
+
+```{r}
+data.frame(permutations_df) |>
+  arrange(X1, X2, X3, X4, X5, X6, X7, X8, X9, X10) |>
+  mutate(id = 1:nrow(permutations_df)) |>
+  filter(id == 1000000) |>
+  transmute(permutation = as.numeric(paste0(X1, X2, X3, X4, X5, X6, X7, X8, X9, X10))) |>
+  pull(permutation)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
