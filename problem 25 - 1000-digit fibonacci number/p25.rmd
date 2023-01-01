@@ -1,0 +1,71 @@
+---
+title: "project euler problem 25: 1000-digit fibonacci number"
+author: "chad allison | 01 january 2023"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+library(gmp) # large integers
+options(digits = 22, scipen = 999)
+```
+
+### generating 5000 fibonacci numbers
+
+```{r}
+fib = as.bigz(c(1, 1))
+for (i in 1:4998) fib[length(fib) + 1] = as.bigz(fib[length(fib)] + fib[length(fib) - 1])
+fib = as.character(fib)
+sample(fib, 10)
+```
+
+### solution
+
+```{r}
+data.frame(fib_num = fib) |>
+  mutate(digits = nchar(fib_num),
+         id = 1:length(fib)) |>
+  filter(digits >= 1000) |>
+  head(1) |>
+  pull(id)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
