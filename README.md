@@ -28,4 +28,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 24](https://github.com/chadallison/project_euler/tree/main/problem%2024%20-%20lexicographic%20permutations)
 - [problem 25](https://github.com/chadallison/project_euler/tree/main/problem%2025%20-%201000-digit%20fibonacci%20number)
 - [problem 26](https://github.com/chadallison/project_euler/tree/main/problem%2026%20-%20reciprocal%20cycles)
+- [problem 29](https://github.com/chadallison/project_euler/tree/main/problem%2029%20-%20distinct%20powers)
 
