@@ -29,5 +29,6 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 25: 1000-digit fibonacci number](https://github.com/chadallison/project_euler/tree/main/problem%2025%20-%201000-digit%20fibonacci%20number)
 - [problem 26: reciprocal cycles](https://github.com/chadallison/project_euler/tree/main/problem%2026%20-%20reciprocal%20cycles)
 - [problem 27: quadratic primes](https://github.com/chadallison/project_euler/tree/main/problem%2027%20-%20quadratic%20primes)
+- [problem 28: number spiral diagonals](https://github.com/chadallison/project_euler/tree/main/problem%2028%20-%20number%20spiral%20diagonals)
 - [problem 29: distinct powers](https://github.com/chadallison/project_euler/tree/main/problem%2029%20-%20distinct%20powers)
 
