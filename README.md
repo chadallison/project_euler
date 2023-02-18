@@ -33,4 +33,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 29: distinct powers](https://github.com/chadallison/project_euler/tree/main/problem%2029%20-%20distinct%20powers)
 - [problem 30: digit fifth powers](https://github.com/chadallison/project_euler/tree/main/problem%2030%20-%20digit%20fifth%20powers)
 - [problem 31: coin sums](https://github.com/chadallison/project_euler/tree/main/problem%2031%20-%20coin%20sums)
+- [problem 32: pandigital products](https://github.com/chadallison/project_euler/tree/main/problem%2032%20-%20pandigital%20products)
 
