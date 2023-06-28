@@ -1,0 +1,129 @@
+---
+title: "project euler problem 30: digit fifth powers"
+author: "chad allison | 05 january 2023"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### reproducing example
+
+```{r}
+data.frame(x = 2:10000) |>
+  mutate(len = nchar(x),
+         one = as.numeric(substr(x, 1, 1)),
+         two = as.numeric(ifelse(len >= 2, substr(x, 2, 2), 0)),
+         three = as.numeric(ifelse(len >= 3, substr(x, 3, 3), 0)),
+         four = as.numeric(ifelse(len >= 4, substr(x, 4, 4), 0)),
+         five = as.numeric(ifelse(len >= 5, substr(x, 5, 5), 0)),
+         sum4 = one ^ 4 + two ^ 4 + three ^ 4 + four ^ 4 + five ^ 4) |>
+  filter(x == sum4) |>
+  pull(x) |>
+  sum()
+```
+
+### solution
+
+```{r}
+data.frame(x = 2:500000) |>
+  mutate(len = nchar(x),
+         one = as.numeric(substr(x, 1, 1)),
+         two = as.numeric(ifelse(len >= 2, substr(x, 2, 2), 0)),
+         three = as.numeric(ifelse(len >= 3, substr(x, 3, 3), 0)),
+         four = as.numeric(ifelse(len >= 4, substr(x, 4, 4), 0)),
+         five = as.numeric(ifelse(len >= 5, substr(x, 5, 5), 0)),
+         six = as.numeric(ifelse(len >= 6, substr(x, 6, 6), 0)),
+         sum4 = one ^ 5 + two ^ 5 + three ^ 5 + four ^ 5 + five ^ 5 + six ^ 5) |>
+  filter(x == sum4) |>
+  pull(x) |>
+  sum()
+```
+
+
+
+
+
+
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

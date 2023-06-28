@@ -1,0 +1,108 @@
+---
+title: "project euler problem 33: digit cancelling fractions"
+author: "chad allison | 23 january 2023"
+output: github_document
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### xxx
+
+```{r}
+shared_digit = function(n1, n2) {
+  n1_split = str_split(as.character(n1), pattern = "")[[1]]
+  n2_split = str_split(as.character(n2), pattern = "")[[1]]
+  return(sum(n1_split %in% n2_split) > 0)
+}
+
+has_shared_df = crossing(a = 10:99, b = 10:99) |>
+  rowwise() |>
+  mutate(has_shared = shared_digit(a, b)) |>
+  ungroup() |>
+  filter(has_shared == T)
+
+has_shared_df |>
+  mutate(a_str = as.character(a),
+         b_str = as.character(b))
+```
+
+
+
+
+
+
+```{r}
+# riddler express solution
+vec = 1
+
+for (i in 1:1000) {
+  vec = c(vec, vec[length(vec)] + i + 1)
+}
+
+data.frame(vec) |>
+  mutate(nchar = nchar(vec)) |>
+  filter(nchar >= 2) |>
+  mutate(last_two = substr(vec, nchar(vec) - 1, nchar(vec))) |>
+  count(last_two) |>
+  arrange(desc(n))
+```
+
+```{r}
+# riddler classic solution
+crossing(a = 1:4, b = 1:4, c = 1:4, d = 1:4) |>
+  filter(a != b & a != c & a != d & b != c & b != d & c != d) |>
+  nrow()
+
+crossing(a = 1:8, b = 1:8, c = 1:8, d = 1:8, e = 1:8, f = 1:8, g = 1:8, h = 1:8) |>
+  filter(a != b & a != c & a != d & a != e & a != f & a != g & a != h,
+         b != c & b != d & b != e & b != f & b != g & b != h,
+         c != d & c != e & c != f & c != g & c != h,
+         d != e & d != f & d != g & d != h,
+         e != f & e != g & e != h,
+         f != g & f != h, g != h) |>
+  nrow()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
