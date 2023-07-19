@@ -1,15 +1,12 @@
----
-title: "project euler problem 33: digit cancelling fractions"
-author: "chad allison | 19 july 2023"
-output: github_document
-knit: (function(input, ...) { rmarkdown::render(input, output_file = "README.md", envir = globalenv()) })
----
+project euler problem 33: digit cancelling fractions
+================
+chad allison \| 19 july 2023
 
-___
+------------------------------------------------------------------------
 
 ### setup
 
-```{r message = F, warning = F}
+``` r
 library(tidyverse)
 library(FRACTION)
 options(digits = 22, scipen = 999)
@@ -17,7 +14,7 @@ options(digits = 22, scipen = 999)
 
 ### logic
 
-```{r}
+``` r
 # function to determine if two numbers share a digit
 has_shared_digit = function(x, y) {
   xd = as.numeric(str_split(x, "")[[1]])
@@ -56,19 +53,18 @@ crossing(x = 10:99, y = 10:99) |>
   filter(x / y == new_x / new_y)
 ```
 
+    ## # A tibble: 4 × 4
+    ##       x     y new_x new_y
+    ##   <int> <int> <dbl> <dbl>
+    ## 1    16    64     1     4
+    ## 2    19    95     1     5
+    ## 3    26    65     2     5
+    ## 4    49    98     4     8
+
 ### solution
 
-```{r}
+``` r
 paste0("final simplified fraction: ", fra((16 / 64) * (19 / 95) * (26 / 65) * (49 / 98)))
 ```
 
-
-
-
-
-
-
-
-
-
-
+    ## [1] "final simplified fraction: 1 / 100"
