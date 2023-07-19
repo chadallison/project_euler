@@ -34,4 +34,6 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 30: digit fifth powers](https://github.com/chadallison/project_euler/tree/main/problem%2030%20-%20digit%20fifth%20powers)
 - [problem 31: coin sums](https://github.com/chadallison/project_euler/tree/main/problem%2031%20-%20coin%20sums)
 - [problem 32: pandigital products](https://github.com/chadallison/project_euler/tree/main/problem%2032%20-%20pandigital%20products)
+- [problem 33: digit cancelling fractions](https://github.com/chadallison/project_euler/tree/main/problem%2033%20-%20digit%20cancelling%20fractions)
+- [problem 34: digit factorials](https://github.com/chadallison/project_euler/tree/main/problem%2034%20-%20digit%20factorials)
 
