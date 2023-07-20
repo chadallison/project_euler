@@ -1,0 +1,59 @@
+project euler problem 35: circular primes
+================
+chad allison \| 20 july 2023
+
+------------------------------------------------------------------------
+
+### setup
+
+``` r
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### solution
+
+``` r
+# function to check if a number is prime
+is_prime = function(n) {
+  if (n <= 1) return(FALSE)
+  if (n <= 3) return(TRUE)
+  if (n %% 2 == 0 | n %% 3 == 0) return(FALSE)
+  i = 5
+  while (i * i <= n) {
+    if (n %% i == 0 | n %% (i + 2) == 0) return(FALSE)
+    i = i + 6
+  }
+  return(TRUE)
+}
+
+# function to generate all rotations of a number
+generate_rotations = function(n) {
+  digits = as.character(n)
+  num_rotations = nchar(digits)
+  rotations = vector("numeric", length = num_rotations)
+  for (i in 1:num_rotations) {
+    rotations[i] = as.numeric(paste0(substr(digits, i, num_rotations), substr(digits, 1, i - 1)))
+  }
+  return(rotations)
+}
+
+# function to count circular primes below a given limit
+count_circular_primes = function(limit) {
+  circular_primes = c()
+  for (num in 2:limit) {
+    if (is_prime(num)) {
+      rotations = generate_rotations(num)
+      if (all(sapply(rotations, is_prime))) {
+        circular_primes = c(circular_primes, num)
+      }
+    }
+  }
+  return(length(circular_primes))
+}
+
+# calculate the number of circular primes below one million
+count_circular_primes(1e6)
+```
+
+    ## [1] 55
