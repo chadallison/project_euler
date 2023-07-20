@@ -36,4 +36,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 32: pandigital products](https://github.com/chadallison/project_euler/tree/main/problem%2032%20-%20pandigital%20products)
 - [problem 33: digit cancelling fractions](https://github.com/chadallison/project_euler/tree/main/problem%2033%20-%20digit%20cancelling%20fractions)
 - [problem 34: digit factorials](https://github.com/chadallison/project_euler/tree/main/problem%2034%20-%20digit%20factorials)
+- [problem 35: circular primes](https://github.com/chadallison/project_euler/tree/main/problem%2035%20-%20circular%20primes)
 
