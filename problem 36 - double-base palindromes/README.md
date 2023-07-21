@@ -1,0 +1,47 @@
+project euler problem 36: double-base palindromes
+================
+chad allison \| 20 july 2023
+
+------------------------------------------------------------------------
+
+### setup
+
+``` r
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### solution
+
+``` r
+# function to convert base 10 to base 2
+to_binary = function(num) {
+  return(as.numeric(paste0(rev(as.numeric(intToBits(num))), collapse = "")))
+}
+
+# function to reverse a number
+reverse_num = function(num) {
+  return(paste0(rev(str_split(num, "")[[1]]), collapse = ""))
+}
+
+# upper limit
+limit = 1e6
+
+# getting all base 10 palindromes up to the limit
+base_10_palindromes = data.frame(num = 1:limit) |>
+  mutate(rev = sapply(num, reverse_num)) |>
+  filter(num == rev) |>
+  pull(num)
+
+# getting all base 2 palindromes up to the limit
+base_2_palindromes = data.frame(num = 1:limit) |>
+  mutate(binary = sapply(num, to_binary),
+         rev_binary = sapply(binary, reverse_num)) |>
+  filter(binary == rev_binary) |>
+  pull(num)
+
+# summing all the numbers that are base 10 and base 2 palindromes
+sum(intersect(base_10_palindromes, base_2_palindromes))
+```
+
+    ## [1] 212865
