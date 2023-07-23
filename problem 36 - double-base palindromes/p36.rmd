@@ -1,6 +1,6 @@
 ---
 title: "project euler problem 36: double-base palindromes"
-author: "chad allison | 20 july 2023"
+author: "chad allison | 23 july 2023"
 output: github_document
 knit: (function(input, ...) { rmarkdown::render(input, output_file = "README.md", envir = globalenv()) })
 ---
@@ -17,45 +17,42 @@ options(digits = 22, scipen = 999)
 ### solution
 
 ```{r}
+# function to check if a number is palindromic
+is_palindrome = function(number) {
+  num_str = as.character(number)
+  rev_num_str = rev(strsplit(num_str, '')[[1]])
+  return(num_str == paste(rev_num_str, collapse = ''))
+}
+
+# function to find palindromic numbers and their binary counterparts
+find_palindromic_numbers = function(limit) {
+  palindromic_numbers = c()
+  for (num in 0:(limit - 1)) {
+    if (is_palindrome(num)) {
+      binary_num = as.character(as.binary(num))
+      if (is_palindrome(binary_num)) {
+        palindromic_numbers = c(palindromic_numbers, num)
+      }
+    }
+  }
+  return(palindromic_numbers)
+}
+
 # function to convert base 10 to base 2
-to_binary = function(num) {
-  return(as.numeric(paste0(rev(as.numeric(intToBits(num))), collapse = "")))
+as.binary = function(x) {
+  res = ""
+  while (x > 0) {
+    res = paste(x %% 2, res, sep = "")
+    x = floor(x / 2)
+  }
+  return(res)
 }
 
-# function to reverse a number
-reverse_num = function(num) {
-  return(paste0(rev(str_split(num, "")[[1]]), collapse = ""))
-}
-
-# upper limit
-limit = 1e6
-
-# getting all base 10 palindromes up to the limit
-base_10_palindromes = data.frame(num = 1:limit) |>
-  mutate(rev = sapply(num, reverse_num)) |>
-  filter(num == rev) |>
-  pull(num)
-
-# getting all base 2 palindromes up to the limit
-base_2_palindromes = data.frame(num = 1:limit) |>
-  mutate(binary = sapply(num, to_binary),
-         rev_binary = sapply(binary, reverse_num)) |>
-  filter(binary == rev_binary) |>
-  pull(num)
-
-# summing all the numbers that are base 10 and base 2 palindromes
-sum(intersect(base_10_palindromes, base_2_palindromes))
+# setting limit, getting all palindromic numbers up to limit and summing
+limit = 1000000
+palindromic_numbers = find_palindromic_numbers(limit)
+sum(palindromic_numbers)
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
