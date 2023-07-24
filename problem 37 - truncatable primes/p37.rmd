@@ -29,7 +29,7 @@ sieve = function(n) {
    last.prime = 2L
    fsqr = floor(sqrt(n))
    while (last.prime <= fsqr) {
-     primes[seq.int(2L*last.prime, n, last.prime)] = F
+     primes[seq.int(2L * last.prime, n, last.prime)] = F
      sel = which(primes[(last.prime + 1):(fsqr + 1)])
      if (any(sel)) {
        last.prime = last.prime + min(sel)
@@ -81,26 +81,6 @@ if (length(truncatables) == 11) {
 }
 ```
 
-### random visual
-
-```{r}
-crossing(x = 1:100, y = 1:100) |>
-  mutate(x2 = sapply(x, is_left_truncatable),
-         y2 = sapply(y, is_right_truncatable),
-         class = case_when(!x2 & !y2 ~ "neither special",
-                           x2 & !y2 ~ "left special",
-                           !x2 & y2 ~ "right special",
-                           x2 & y2 ~ "double special")) |>
-  filter(class != "neither special") |>
-  ggplot(aes(x, y)) +
-  geom_point(aes(col = class), show.legend = F) +
-  scale_color_manual(values = c("black", "#C9D9C6", "#D6C6D9")) +
-  scale_x_continuous(breaks = seq(0, 1e6, by = 5)) +
-  scale_y_continuous(breaks = seq(0, 1e6, by = 5)) +
-  labs(x = "x variable", y = "y variable",
-       title = "left-and-right-truncatable primes up to 100") +
-  theme_classic()
-```
 
 
 
