@@ -37,4 +37,6 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 33: digit cancelling fractions](https://github.com/chadallison/project_euler/tree/main/problem%2033%20-%20digit%20cancelling%20fractions)
 - [problem 34: digit factorials](https://github.com/chadallison/project_euler/tree/main/problem%2034%20-%20digit%20factorials)
 - [problem 35: circular primes](https://github.com/chadallison/project_euler/tree/main/problem%2035%20-%20circular%20primes)
+- [problem 36: double-base palindromes](https://github.com/chadallison/project_euler/tree/main/problem%2036%20-%20double-base%20palindromes)
+- [problem 37: truncatable primes](https://github.com/chadallison/project_euler/tree/main/problem%2037%20-%20truncatable%20primes)
 
