@@ -97,7 +97,8 @@ crossing(x = 1:100, y = 1:100) |>
   scale_x_continuous(breaks = seq(0, 1e6, by = 5)) +
   scale_y_continuous(breaks = seq(0, 1e6, by = 5)) +
   labs(x = "x variable", y = "y variable",
-       title = "left-and-right-truncatable primes up to 100")
+       title = "left-and-right-truncatable primes up to 100") +
+  theme_classic()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
