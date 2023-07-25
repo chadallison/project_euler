@@ -40,4 +40,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 36: double-base palindromes](https://github.com/chadallison/project_euler/tree/main/problem%2036%20-%20double-base%20palindromes)
 - [problem 37: truncatable primes](https://github.com/chadallison/project_euler/tree/main/problem%2037%20-%20truncatable%20primes)
 - [problem 38: pandigital multiples](https://github.com/chadallison/project_euler/tree/main/problem%2038%20-%20pandigital%20multiples)
+- [problem 39: integer right triangles](https://github.com/chadallison/project_euler/tree/main/problem%2039%20-%20integer%20right%20triangles)
 
