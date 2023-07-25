@@ -1,0 +1,49 @@
+project euler problem 39: integer right triangles
+================
+chad allison \| 25 july 2023
+
+------------------------------------------------------------------------
+
+### setup
+
+``` r
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### solution
+
+``` r
+# setting upper limit
+limit = 1000
+
+# function to count number of solutions for a given p
+count_solutions = function(p) {
+  count = 0
+  for (a in 1:(p %/% 3)) { # a must be less than p / 3
+    for (b in a:((p - a) %/% 2 + 1)) { # b must be less than (p - a) / 2
+      c = p - a - b
+      if (a ^ 2 + b ^ 2 == c ^ 2) count = count + 1
+    }
+  }
+  return(count)
+}
+
+# creating variables for optimal p and number of solutions for that p
+max_p = 0
+max_solutions = 0
+
+# looping through every p up to the limit
+for (i in 1:limit) {
+  num_solutions = count_solutions(i)
+  if (num_solutions > max_solutions) {
+    max_solutions = num_solutions
+    max_p = i
+  }
+}
+
+# solution
+paste0("optimal p = ", max_p, " with ", max_solutions, " solutions")
+```
+
+    ## [1] "optimal p = 840 with 8 solutions"

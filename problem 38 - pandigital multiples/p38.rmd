@@ -18,7 +18,7 @@ options(digits = 22, scipen = 999)
 
 ```{r}
 # setting limit
-limit = 100000
+limit = 10000
 
 # function to determine if a number is 1 to 9 pandigital
 is_pandigital = function(x) {
