@@ -1,0 +1,61 @@
+---
+title: "project euler problem 40: champernowne's constant"
+author: "chad allison | 26 july 2023"
+output: github_document
+knit: (function(input, ...) { rmarkdown::render(input, output_file = "README.md", envir = globalenv()) })
+---
+
+___
+
+### setup
+
+```{r message = F, warning = F}
+library(tidyverse)
+options(digits = 22, scipen = 999)
+```
+
+### solution
+
+```{r}
+# setting limit
+limit = 200000
+
+# generating vector of integers up to limit
+int_vec = seq(1, limit, by = 1)
+
+# creating irrational decimal fraction
+idf = paste0("0.", paste0(int_vec, collapse = ""))
+
+# function to get the nth digit of the i.d.f.
+d = function(n) {
+  return(as.integer(substr(idf, n + 2, n + 2)))
+}
+
+# solution
+d(1) * d(10) * d(100) * d(1000) * d(10000) * d(100000) * d(1000000)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
