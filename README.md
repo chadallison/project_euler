@@ -43,4 +43,5 @@ tracking my work on [project euler](https://projecteuler.net/). each day will ha
 - [problem 39: integer right triangles](https://github.com/chadallison/project_euler/tree/main/problem%2039%20-%20integer%20right%20triangles)
 - [problem 40: chapernowne's constant](https://github.com/chadallison/project_euler/tree/main/problem%2040%20-%20champernowne's%20constant)
 - [problem 41: panditial prime](https://github.com/chadallison/project_euler/tree/main/problem%2041%20-%20pandigital%20prime)
+- [problem 42: coded triangle numbers](https://github.com/chadallison/project_euler/tree/main/problem%2042%20-%20coded%20triangle%20numbers)
 
